@@ -1,0 +1,22 @@
+# -*- conf -*-
+
+
+[include]
+files = *.supervisor
+
+[supervisord]
+pidfile = /var/run/supervisord.pid
+nodaemon=false
+
+[supervisorctl]
+serverurl=unix:///var/run/supervisord.sock ; use a unix:// URL for a unix socket
+
+[unix_http_server]
+file = /var/run/supervisord.sock
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+
+[include]
+files = /etc/supervisor/conf.d/*.conf
