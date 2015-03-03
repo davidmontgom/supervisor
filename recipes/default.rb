@@ -16,6 +16,8 @@ end
 
 easy_install_package "supervisor" do
   action :install
+  retries 3
+  retry_delay 30
 end
 
 directory "/etc/supervisor/conf.d" do
