@@ -1,4 +1,4 @@
-
+Chef::Provider::Package.include Chef::Mixin::Command
 =begin
 include_recipe "python::pip"
 
