@@ -15,7 +15,7 @@ serverurl=unix:///var/run/supervisord.sock ; use a unix:// URL for a unix socket
 file = /var/run/supervisord.sock
 
 [inet_http_server]
-port = 127.0.0.1:9020
+port = :9020
 
 [rpcinterface:supervisor]
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
