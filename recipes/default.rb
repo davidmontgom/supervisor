@@ -10,13 +10,15 @@ end
 package "python-dev" do
   action :install
 end
-package "python-setuptools" do
-  action :install
+
+python_package "python-setuptools" do
+  action :upgrade
 end
 
-easy_install_package "supervisor" do
-  action :install
+python_package "supervisor" do
+  action :upgrade
 end
+
 
 directory "/etc/supervisor/conf.d" do
   owner "root"
