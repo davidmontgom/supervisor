@@ -11,10 +11,15 @@ package "python-dev" do
   action :install
 end
 
+=begin
 python_package "python-setuptools" do
   action :upgrade
 end
+=end
 
+python_package "supervisor" do
+  action :upgrade
+end
 
 
 directory "/etc/supervisor/conf.d" do
