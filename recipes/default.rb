@@ -11,9 +11,22 @@ package "python-dev" do
   action :install
 end
 
-python_package "python-setuptools" do
-  action :upgrade
+package "python-setuptools" do
+  action :install
 end
+
+=begin
+curl -O http://python-distribute.org/distribute_setup.py
+$ python distribute_setup.py
+$ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+$ python get-pip.pye
+=end
+
+python_package "pip" do
+  action [:install, :upgrade]
+end
+
+
 
 python_package "supervisor" do
   action :upgrade
