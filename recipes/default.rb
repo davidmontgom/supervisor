@@ -1,4 +1,4 @@
-
+Chef::Provider::Package.include Chef::Mixin::Command
 =begin
 include_recipe "python::pip"
 
@@ -15,9 +15,6 @@ python_package "python-setuptools" do
   action :upgrade
 end
 
-python_package "supervisor" do
-  action :upgrade
-end
 
 
 directory "/etc/supervisor/conf.d" do
