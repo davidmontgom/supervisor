@@ -20,17 +20,19 @@ $ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 $ python get-pip.pye
 =end
 
-
-
-
-
 package "python-setuptools" do
   action [:install,:upgrade]
+end
+
+=begin
+package "python-pip" do
+  action :install
 end
 
 python_package "pip" do
   action [:install, :upgrade]
 end
+=end
 
 python_package "supervisor" do
   action :upgrade
