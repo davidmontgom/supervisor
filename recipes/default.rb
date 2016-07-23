@@ -27,7 +27,7 @@ end
 bash "install_pip" do
   cwd "/tmp/"
   code <<-EOH
-  curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+  wget https://bootstrap.pypa.io/get-pip.py
   /usr/bin/python get-pip.py
 EOH
   creates "#{Chef::Config[:file_cache_path]}/get-pip.lock"
