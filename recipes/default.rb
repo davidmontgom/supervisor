@@ -17,11 +17,21 @@ end
 curl -O http://python-distribute.org/distribute_setup.py
 $ python distribute_setup.py
 $ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-$ python get-pip.pye
+$ python get-pip.py
 =end
 
 package "python-setuptools" do
   action [:install,:upgrade]
+end
+
+bash "install_pip" do
+  cwd "/tmp/"
+  code <<-EOH
+  curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+  /usr/bin/python get-pip.py
+EOH
+  creates "#{Chef::Config[:file_cache_path]}/get-pip.lock"
+  not_if {File.exists?("#{Chef::Config[:file_cache_path]}/get-pip.lock")}
 end
 
 =begin
