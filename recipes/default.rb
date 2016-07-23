@@ -20,7 +20,7 @@ $ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 $ python get-pip.py
 =end
 
-=begin
+
 package "python-setuptools" do
   action [:install,:upgrade]
 end
@@ -34,8 +34,8 @@ EOH
   creates "#{Chef::Config[:file_cache_path]}/get-pip.lock"
   not_if {File.exists?("#{Chef::Config[:file_cache_path]}/get-pip.lock")}
 end
-=end
 
+=begin
 package "python-pip" do
   action :install
 end
@@ -47,7 +47,7 @@ bash "install_pip" do
 EOH
   not_if {File.exists?("#{Chef::Config[:file_cache_path]}/get-pip.lock")}
 end
-
+=end
 
 
 
