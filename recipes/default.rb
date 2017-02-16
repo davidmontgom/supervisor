@@ -21,8 +21,14 @@ $ python get-pip.py
 =end
 
 
+=begin
 package "python-setuptools" do
   action [:install,:upgrade]
+end
+=end
+
+python_package "setuptools" do
+  action :upgrade
 end
 
 bash "install_pip" do
