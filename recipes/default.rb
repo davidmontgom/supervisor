@@ -29,8 +29,16 @@ package "python-setuptools" do
 end
 =end
 
+=begin
 python_package "setuptools" do
   action :upgrade
+end
+=end
+
+bash "install_supervisor_setuptools" do
+  code <<-EOH
+  	pip install --upgrade setuptools
+  EOH
 end
 
 bash "install_pip" do
@@ -57,11 +65,18 @@ EOH
 end
 =end
 
+bash "install_supervisor_packages" do
+  code <<-EOH
+  	pip install --upgrade supervisor
+  EOH
+end
 
 
+=begin
 python_package "supervisor" do
   action :upgrade
 end
+=end
 
 directory "/etc/supervisor/conf.d" do
   owner "root"
